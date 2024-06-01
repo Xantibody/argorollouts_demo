@@ -1,0 +1,4 @@
+resources:
+  - rollout/nginx-rollout.yaml
+  - service/nginx-active.yaml
+  - service/nginx-preview.yaml

@@ -4,10 +4,10 @@ metadata:
   name: nginx-active
   namespace: default
 spec:
+  type: NodePort
   ports:
   - port: 80
     targetPort: 80
+    nodePort: 30080  # ローカルホストでアクセスするポート（範囲：30000-32767）
   selector:
     app: nginx
-
-

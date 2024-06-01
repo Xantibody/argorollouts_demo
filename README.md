@@ -1,0 +1,2 @@
+# multi_node_cluster
+勉強会用に作成したkindを使用したK8sリポジトリ

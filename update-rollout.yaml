@@ -2,8 +2,15 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: nginx-rollout
+  namespace: nginx
 spec:
   replicas: 2
+  strategy:
+    blueGreen:
+      activeService: nginx-active
+      previewService: nginx-preview
+      autoPromotionEnabled: false
+      scaleDownDelaySeconds: 30
   selector:
     matchLabels:
       app: nginx
@@ -17,8 +24,3 @@ spec:
         image: httpd:latest
         ports:
         - containerPort: 80
-  strategy:
-    blueGreen:
-      activeService: nginx-active
-      previewService: nginx-preview
-      autoPromotionEnabled: false

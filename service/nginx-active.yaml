@@ -2,12 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx-active
-  namespace: default
+  namespace: nginx
 spec:
   type: NodePort
   ports:
   - port: 80
     targetPort: 80
-    nodePort: 30080  # ローカルホストでアクセスするポート（範囲：30000-32767）
+    nodePort: 30080 #ローカルアクセス用ポート 
   selector:
     app: nginx
